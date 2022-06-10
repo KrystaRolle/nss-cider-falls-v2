@@ -1,0 +1,42 @@
+body {
+    color: black;
+    background-color: #4F6653FF;
+}
+
+.title {
+    text-align: center;
+    color: blanchedalmond;
+    font-size: 6em;
+    background-color: #061A09
+}
+
+.sectionsAndServicesList {
+    color: blanchedalmond;
+}
+.servicesOffered {
+    display: flex;
+    flex-direction: row;
+}
+
+.footer {
+    color: blanchedalmond;
+}
+
+.sectionAndGuests {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+article {
+    text-overflow: clip;
+    white-space: nowrap;
+    overflow:hidden;
+}
+
+.guestAlign {
+    text-align: center;
+    font-size: 2em;
+    display: flex;
+    align-content: flex-end;
+}
