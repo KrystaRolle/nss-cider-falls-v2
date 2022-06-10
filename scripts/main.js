@@ -1,9 +1,10 @@
 //import all necessary functions from other modules and invoke
 import { footer } from "./footer.js"
-import { matchingSections } from "./sectionServicesJoin.js"
+import { sectionsAndServicesList } from "./sectionServicesJoin.js"
 //import { currentGuestSection } from "./guestSectionJoin.js"
 import { sectionServicesOffered } from './parkServicesList.js'
 import {currentSectionGuests} from './guests.js'
+import { sectionsHTML }from './sectionServicesJoin.js'
 //put parks as a header for each section and then subsection the activites/services
 
 
@@ -16,7 +17,8 @@ let applicationsHTML = `
     <h2 class='sectionsAndServicesTitle'>Park Sections & Services</h2>
     <div class=sectionAndGuests>
     <section class= 'sectionsAndServicesList'>
-   ${matchingSections()}
+    ${sectionsHTML()}
+   ${sectionsAndServicesList()}
     </section>
     <div class = guestAlign>
     <h2 class= guestsTitle>Current Guests</h2>

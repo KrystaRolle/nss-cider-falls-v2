@@ -8,7 +8,7 @@ const sections = getSections();
 const serviceSection = getSectionServicesJoin() //rename to section
 const guests = getGuests()
 
-//function that will match service to serviceId
+//function that will return services object
 const matchingServices = (serviceJoinId) => {
     //loop  services()
     for (const service of services) {
@@ -20,58 +20,110 @@ const matchingServices = (serviceJoinId) => {
     }
 }
 
-const match = (serveSect) => {
-    for (const service of services) {
-        if (1 === servSect.sectionId) {
-            if (service.id === servSect.serviceId) {
-               return html += `${section.name}
-                ${service.name}`
-            }
-        } else if (2 === servSect.sectionId) {
-            if (service.id === servSect.serviceId) {
-              return  html += `${section.name}
-                  ${service.name}`
-            }
+// need to match join data with service and section
+//if statement for assigning number with park name
 
-        } else if (3 === servSect.sectionId) {
-            if (service.id === servSect.serviceId) {
-              return  html += `${section.name}
-                  ${service.name}`
-            }
-
-        } else if (4 === servSect.sectionId) {
-            if (service.id === servSect.serviceId) {
-               return html += `${section.name}
-                  ${service.name}`
-            }
-
-        } else if (5 === servSect.sectionId) {
-            if (service.id === servSect.serviceId) {
-               return html += `${section.name}
-                  ${service.name}`
-            }
-
-        } else if (6 === servSect.sectionId) {
-            if (service.id === servSect.serviceId) {
-                return html += `${section.name}
-                  ${service.name}`
-            }
-        }
-}
-
-//function that will match sections to serviceSectionid
-export const matchingSections = () => {
-    let html = ' '
-    //loop sections section and join?
-    for (const servSect of serviceSection) {
-        for (const section of sections) {
-           match(serviceSection)
-            }
+//function that will return mathcing sections obj
+const matchingSections = (sectionJoinId) => {
+    //loop  services()
+    for (const section of sections) {
+        //assignment conditional
+        if (section.id === sectionJoinId) {
+            //returns section objects only
+            return section
         }
     }
-    //conditionals if section id 1 === join id
-    return html
 }
+
+//section title html
+export const sectionsHTML = () => {
+   for (const section of sections) {
+    let sectionHTML = section.name
+    return sectionHTML
+}
+}
+
+//function that makes html
+//function that invokes previous 3 funcitons
+const servicesHTML = (serviceObj, sectionObj) => {
+    if (serviceObj.id === joinServiceSection.serviceId) {
+        if (sectionObj.id === joinServiceSection.sectionId) {
+            return html += //`${sectionObj.name}
+                `${serviceObj.name}`
+        }
+    }
+
+}
+export const sectionsAndServicesList = () => {
+    for (const joinServiceSection of serviceSection) {
+        const sect = matchingSections(joinServiceSection.sectionId)
+        const serve = matchingServices(joinServiceSection.serviceId)
+
+
+
+
+
+
+
+        const result = sectionsAndServicesHTML(serve, sect)
+        return result
+    }
+}
+
+//return html
+
+// const match = (serveSect) => {
+//     for (const service of services) {
+//         if (1 === servSect.sectionId) {
+//             if (service.id === servSect.serviceId) {
+//                return html += `${section.name}
+//                 ${service.name}`
+//             }
+//         } else if (2 === servSect.sectionId) {
+//             if (service.id === servSect.serviceId) {
+//               return  html += `${section.name}
+//                   ${service.name}`
+//             }
+
+//         } else if (3 === servSect.sectionId) {
+//             if (service.id === servSect.serviceId) {
+//               return  html += `${section.name}
+//                   ${service.name}`
+//             }
+
+//         } else if (4 === servSect.sectionId) {
+//             if (service.id === servSect.serviceId) {
+//                return html += `${section.name}
+//                   ${service.name}`
+//             }
+
+//         } else if (5 === servSect.sectionId) {
+//             if (service.id === servSect.serviceId) {
+//                return html += `${section.name}
+//                   ${service.name}`
+//             }
+
+//         } else if (6 === servSect.sectionId) {
+//             if (service.id === servSect.serviceId) {
+//                 return html += `${section.name}
+//                   ${service.name}`
+//             }
+//         }
+// }
+
+// //function that will match sections to serviceSectionid
+// export const matchingSections = () => {
+//     let html = ' '
+//     //loop sections section and join?
+//     for (const servSect of serviceSection) {
+//         for (const section of sections) {
+//            match(serviceSection)
+//             }
+//         }
+//     }
+//     //conditionals if section id 1 === join id
+//     return html
+// }
 
 
 //if (${service})
