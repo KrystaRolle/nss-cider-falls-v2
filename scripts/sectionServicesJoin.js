@@ -43,29 +43,26 @@ export const sectionsHTML = () => {
 }
 }
 
-//function that makes html
-//function that invokes previous 3 funcitons
+//function that matches service & section
 const servicesHTML = (serviceObj, sectionObj) => {
+    for (const joinServiceSection of serviceSection) {
+        let html = ` `
     if (serviceObj.id === joinServiceSection.serviceId) {
         if (sectionObj.id === joinServiceSection.sectionId) {
-            return html += //`${sectionObj.name}
-                `${serviceObj.name}`
+            return html += `${sectionObj.name}
+                ${serviceObj.name}`
         }
     }
-
+    }
 }
+
+//invokes funcitons above
 export const sectionsAndServicesList = () => {
     for (const joinServiceSection of serviceSection) {
         const sect = matchingSections(joinServiceSection.sectionId)
         const serve = matchingServices(joinServiceSection.serviceId)
 
-
-
-
-
-
-
-        const result = sectionsAndServicesHTML(serve, sect)
+        const result = servicesHTML(serve, sect)
         return result
     }
 }
